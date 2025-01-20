@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/formul_flujo.css">
+</head> 
+<body> 
+    <div class="form-page"> 
+        <div class="steps"> 
+            <ul> 
+                <li class="step active">1</li> 
+                <li class="step">2</li> 
+                <li class="step">3</li> 
+                <li class="step">4</li> 
+                <li class="step">5</li> 
+                <li class="step">6</li> 
+                <!-- Añade más pasos según sea necesario --> 
+            </ul> 
+        </div>
+        <div class="flex flex-sb"> 
+            <div class="form-input"> 
+                <div class="step-indicator">1: Nombre y apellidos</div> 
+                <input type="text" id="buscoPlaza_nombre" name="nombre" class="form-control form-control-sm form-error" placeholder="Nombre y apellidos (*)" onfocus="mostrarPaso(event)" onblur="ocultarPaso(event)"> 
+            </div> 
+            <div class="form-input"> 
+                <div class="step-indicator">2: Teléfono</div> 
+                <input type="text" id="buscoPlaza_telefono" name="telefono" class="form-control form-control-sm form-error" placeholder="Teléfono (*)" onfocus="mostrarPaso(event)" onblur="ocultarPaso(event)"> 
+            </div> 
+        </div> 
+        <div class="flex flex-sb mt-3"> 
+            <div class="form-input"> 
+                <div class="step-indicator">3: Correo electrónico</div> 
+                <input type="text" id="buscoPlaza_email" name="email" class="form-control form-control-sm form-error" placeholder="Correo electrónico (*)" onfocus="mostrarPaso(event)" onblur="ocultarPaso(event)"> 
+            </div> 
+        </div> 
+        <div class="form-input"> 
+            <label class="text-dark mb-0">¿Qué presupuesto máximo mensual puede pagar por persona?</label> 
+            <div class="presupuesto-desc">
+                <span class="presupuesto-min">1000€</span>
+                <span class="presupuesto-max">5000€</span>
+            </div> 
+            <div class="step-indicator">4: Presupuesto máximo</div> 
+            <input type="range" min="1000" max="5000" step="10" class="form-control form-control-sm" value="1500" onfocus="mostrarPaso(event)" onblur="ocultarPaso(event)"> 
+            <div class="presupuesto-info"><span>1500€</span></div> 
+        </div> <div class="form-input"> <label class="text-dark mb-0">¿Qué urgencia tiene?</label> <div class="step-indicator">Paso 5: Urgencia</div> <select name="urgencia" class="form-control form-control-sm" onfocus="mostrarPaso(event)" onblur="ocultarPaso(event)"> <option>Lo antes posible</option> <option>Una semana</option> <option>Un mes</option> <option>No me urge</option> </select> </div> <div class="form-input"> <label for="buscoPlaza_paciente" class="text-dark mb-0">¿Quién necesita los cuidados? Indique el parentesco (*)</label> <div class="step-indicator">Paso 6: Parentesco</div> <select name="paciente" id="buscoPlaza_paciente" class="form-control form-control-sm form-error" onfocus="mostrarPaso(event)" onblur="ocultarPaso(event)"> <option value="1">Soy yo quien necesita cuidados</option> <option value="2">Padre/madre</option> <option value="3">Otro familiar</option> <option value="4">Amigo/conocido</option> <option value="5">Otros</option> </select> </div> <p class="error-message">Rellene los campos obligatorios.</p> <div class="buttons"> <button class="btn button-primary important">Continuar</button> </div> <p class="link-condiciones"><img src="/img/gdpr.png" width="60"><a href="/politica-de-privacidad" target="_blank">Al iniciar esta búsqueda, acepta nuestra Política de privacidad disponible haciendo clic aquí.</a></p> </div>
+
+    <script src="js/formul_flujo.js"></script>
+</body>
+</html>

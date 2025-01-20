@@ -18,7 +18,7 @@ body {
 } 
 .steps {
     text-align: center;
-    margin-bottom: 20px;
+    margin-bottom: 5px;
   }
   
   .steps ul {
@@ -26,20 +26,22 @@ body {
     padding: 0;
     display: flex;
     justify-content: center;
+    gap: 1.5px;
   }
   
   .steps li {
-    padding: 10px 20px;
+    padding: 3px 6px;
     background-color: #ddd;
-    margin: 0 5px;
-    border-radius: 5px;
+    margin: 0 1.5px;
+    border-radius: 1.5px;
+    font-size: 10px;
   }
   
   .steps .active {
     background-color: #4caf50; /* Color del paso activo */
     color: white;
     font-weight: bold;
-    border: 2px solid #000; /* Borde para destacar aún más */
+    border: 0.5px solid #000; /* Borde para destacar aún más */
   }
     
   
@@ -48,10 +50,10 @@ body {
     color: #007BFF; 
     margin-bottom: 10px; 
     display: none; 
-    font-size: 16px; 
+    font-size: 10px; 
 } 
 .form-input { 
-    margin-bottom: 20px; 
+    margin-bottom: 10px; 
 } 
 .form-input input, 
 .form-input select, 
