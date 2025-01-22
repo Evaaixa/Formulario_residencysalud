@@ -8,8 +8,12 @@ body {
     background-color: #f5f5f5;
     padding: 20px;
     font-family: Arial, sans-serif;
+    flex-direction: column;
 }
-
+header {
+    margin-bottom: 30px; /* Espacio entre el header y el formulario */
+    text-align: center;
+}
 .r-index-form {
     max-width: 800px;
     width: 100%;
