@@ -1,0 +1,270 @@
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f5f5f5;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    flex-direction: column;
+}
+header {
+    margin-bottom: 30px; /* Espacio entre el header y el formulario */
+    text-align: center;
+}
+.r-index-form {
+    max-width: 800px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 2rem;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+/* Estilos generales del contenedor */
+.r-index-form {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.container {
+    display: flex;
+    overflow-x: hidden;
+    width: 100%;
+    transition: transform 0.5s ease-in-out;
+}
+.form-page {
+    min-width: 100%;
+    box-sizing: border-box;
+}
+.steps {
+    text-align: center;
+    margin: 0 auto 2rem;
+}
+.steps ul {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    align-items: center;
+    margin: 0;
+}
+.steps li {
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #e0e0e0;
+    border-radius: 6px;
+    font-size: 14px;
+    color: #666;
+    position: relative;
+}
+.steps li::after {
+    content: '';
+    position: absolute;
+    right: -8px;
+    width: 8px;
+    height: 2px;
+    background-color: #e0e0e0;
+}
+.steps li:last-child::after {
+    display: none;
+}
+.steps .active {
+    background-color: #4CAF50;
+    color: white;
+    font-weight: bold;
+    border: none;
+}
+.steps .active::after {
+    background-color: #4CAF50;
+}
+@media (max-width: 768px) {
+    .container {
+        flex-direction: row;
+    }
+}
+
+/* Estilos para los títulos */
+.title-box label {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    display: block;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.subtitle-box {
+    font-size: 16px;
+    color: #666;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+/* Mejoras para los campos del formulario */
+.form-input {
+    margin-bottom: 1.5rem;
+}
+
+.form-input label {
+    font-size: 16px;
+    color: #444;
+    margin-bottom: 0.5rem;
+    display: block;
+}
+
+.form-control {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 15px;
+    width: 100%;
+    transition: border-color 0.3s ease;
+}
+
+.form-control:focus {
+    border-color: #4CAF50;
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(76, 175, 80, 0.2);
+}
+
+/* Estilos para los botones */
+.buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+.btn {
+    padding: 10px 24px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.button-primary {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+}
+
+.button-primary:hover {
+    background-color: #45a049;
+    transform: translateY(-1px);
+}
+
+.button-default {
+    background-color: #f5f5f5;
+    color: #333;
+    border: 1px solid #ddd;
+}
+
+.button-default:hover {
+    background-color: #e9e9e9;
+}
+
+/* Estilos para el control de rango */
+.presupuesto-desc {
+    display: flex;
+    justify-content: space-between;
+    margin: 0.5rem 0;
+    font-size: 14px;
+    color: #666;
+}
+
+/* Estilos para mensajes */
+.error-message {
+    color: #dc3545;
+    font-size: 14px;
+    margin-top: 0.5rem;
+}
+
+.success_message_form {
+    text-align: center;
+    color: #4CAF50;
+    font-size: 18px;
+    padding: 2rem;
+    background-color: #f8fff8;
+    border-radius: 5px;
+    margin-top: 1rem;
+}
+
+/* Estilos para la sección de política de privacidad */
+.link-condiciones {
+    margin-top: 2rem;
+    text-align: center;
+    font-size: 14px;
+    color: #666;
+}
+
+.link-condiciones a {
+    color: #4CAF50;
+    text-decoration: none;
+}
+
+.link-condiciones a:hover {
+    text-decoration: underline;
+}
+
+/* Estilos para layout flexible */
+.flex {
+    display: flex;
+    gap: 1rem;
+}
+
+.flex-sb {
+    justify-content: space-between;
+}
+
+/* Estilos para campos con error */
+.form-control.error {
+    border-color: #dc3545;
+    background-color: #fff8f8;
+}
+
+/* Estilos adicionales para mantener la estructura */
+.bg-grey {
+    background-color: #f8f9fa;
+    padding: 1.5rem;
+    border-radius: 5px;
+}
+
+.pop-header {
+    margin-bottom: 1rem;
+}
+
+.pop-header span {
+    padding: 8px 16px;
+    background-color: #e9ecef;
+    cursor: pointer;
+}
+
+.pop-header span.active {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.round-top-left {
+    border-top-left-radius: 5px;
+}
+
+.round-top-right {
+    border-top-right-radius: 5px;
+}
+
+.round-bottom {
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
