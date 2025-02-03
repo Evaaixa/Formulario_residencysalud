@@ -1,3 +1,12 @@
+document.addEventListener('DOMContentLoaded', function() {
+    console.log('DOM cargado completamente');
+    // Resto de tu código de inicialización
+});
+
+window.addEventListener('load', function() {
+    console.log('Página completamente cargada');
+});
+
 function nextStep(currentStep) {
     // Validar campos antes de continuar
     if (!validateStep(currentStep)) return;
