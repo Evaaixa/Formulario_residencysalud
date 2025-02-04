@@ -8,6 +8,7 @@ body {
     padding: 20px;
     font-family: Arial, sans-serif;
     flex-direction: column;
+    overflow-x: hidden; /*Evita el desbordamiento horizontal */
 }
 
 header {
@@ -33,6 +34,7 @@ header {
     justify-content: center;
     gap: 30px; /* Espacio entre los pasos */
     align-items: center;
+    overflow-x: auto; /* Permite el desplazamiento horizontal */
 }
 
 .steps ul {
@@ -95,7 +97,7 @@ header {
 /* Asegura que el texto esté debajo del número y centrado */
 .step-label {
     margin-top: 6px;
-    font-size: 14px;
+    font-size: 12px;
     color: #333;
     text-align: center;
 }
@@ -113,6 +115,7 @@ header {
     flex: 0 0 100%;
     scroll-snap-align: start;
     padding: 20px;
+    box-sizing: border-box; /*Asegura que el padding se incluya en el ancho total */
 }
 
 /* Resto de los estilos */
@@ -277,8 +280,13 @@ header {
 
 /* Estilos adicionales para dispositivos móviles */
 @media (max-width: 768px) {
+    .r-index-form {
+        padding: 1rem;
+    }
+
     .steps {
-        overflow-x: scroll;
+        overflow-x: auto;
+        flex-wrap: nowrap;
     }
 
     .steps ul {
@@ -287,10 +295,19 @@ header {
     }
 
     .steps li {
-        flex: 0 0 40px;
+        flex: 0 0 auto;
     }
 
     .form-page {
         padding: 10px;
+    }
+
+    .form-control {
+        font-size: 14px;
+    }
+
+    .btn {
+        padding: 8px 16px;
+        font-size: 14px;
     }
 }
