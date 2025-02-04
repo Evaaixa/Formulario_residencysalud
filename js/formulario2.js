@@ -1,44 +1,67 @@
-let currentStep = 0;
+document.addEventListener('DOMContentLoaded', function () {
+    console.log('DOM cargado completamente');
+});
 
-function updateStep() {
-    const container = document.getElementById('formContainer');
-    container.style.transform = `translateX(-${currentStep * 100}%)`;
-    const steps = document.querySelectorAll('.steps li');
-    steps.forEach((step, index) => {
-        step.classList.toggle('active', index === currentStep);
-    });
-}
+window.addEventListener('load', function () {
+    console.log('Página completamente cargada');
+});
 
+// ✅ FUNCIONES PARA AVANZAR Y RETROCEDER PASOS
 function nextStep(currentStep) {
     if (!validateStep(currentStep)) return;
-    document.getElementById(`step${currentStep}`).style.display = 'none';
-    currentStep++;
-    document.getElementById(`step${currentStep}`).style.display = 'block';
-    updateStep();
+
+    changeStep(currentStep, currentStep + 1);
 }
 
 function prevStep(currentStep) {
-    document.getElementById(`step${currentStep}`).style.display = 'none';
-    currentStep--;
-    document.getElementById(`step${currentStep}`).style.display = 'block';
-    updateStep();
+    changeStep(currentStep, currentStep - 1);
 }
 
-function goToStep(step) {
+// ✅ FUNCIÓN PRINCIPAL PARA CAMBIAR DE PASO
+function changeStep(currentStep, newStep) {
+    // Ocultar paso actual
     document.getElementById(`step${currentStep}`).style.display = 'none';
-    currentStep = step;
-    document.getElementById(`step${currentStep}`).style.display = 'block';
-    updateStep();
+
+    // Mostrar nuevo paso
+    document.getElementById(`step${newStep}`).style.display = 'block';
+
+    // Actualizar flujograma
+    updateSteps(newStep);
 }
 
+// ✅ ACTUALIZA EL FLUJOGRAMA VISUALMENTE
+function updateSteps(activeStep) {
+    const steps = document.querySelectorAll('.steps li');
+
+    steps.forEach((step, index) => {
+        if (index + 1 === activeStep) {
+            step.classList.add('active');
+        } else {
+            step.classList.remove('active');
+        }
+    });
+}
+
+// ✅ HABILITAR NAVEGACIÓN CON CLIC EN LOS NÚMEROS
+document.querySelectorAll('.steps li').forEach((step, index) => {
+    step.addEventListener('click', function () {
+        const stepNumber = index + 1;
+        const currentActive = document.querySelector('.steps .active');
+
+        if (stepNumber < parseInt(currentActive.textContent)) {
+            changeStep(parseInt(currentActive.textContent), stepNumber);
+        }
+    });
+});
+
+// ✅ VALIDACIÓN DE CAMPOS OBLIGATORIOS
 function validateStep(step) {
-    console.log(`Validating step: ${step}`);
+    console.log(`Validando paso: ${step}`);
     const currentStep = document.getElementById(`step${step}`);
     const requiredFields = currentStep.querySelectorAll('[required]:not([style*="display: none"])');
     let isValid = true;
 
     requiredFields.forEach(field => {
-        console.log(`Validating field: ${field.id}, value: ${field.value}`);
         if (!field.value) {
             isValid = false;
             field.classList.add('error');
@@ -57,9 +80,13 @@ function validateStep(step) {
     return isValid;
 }
 
+// ✅ ENVÍO DEL FORMULARIO
 function submitForm() {
     if (!validateStep(3)) return;
+
     document.getElementById('step3').style.display = 'none';
     document.getElementById('success').style.display = 'block';
+
     updateSteps(4);
 }
+

@@ -1,4 +1,3 @@
-
 body {
     margin: 0;
     min-height: 100vh;
@@ -10,10 +9,12 @@ body {
     font-family: Arial, sans-serif;
     flex-direction: column;
 }
+
 header {
-    margin-bottom: 30px; /* Espacio entre el header y el formulario */
+    margin-bottom: 30px;
     text-align: center;
 }
+
 .r-index-form {
     max-width: 800px;
     width: 100%;
@@ -23,78 +24,98 @@ header {
     border-radius: 10px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
-/* Estilos generales del contenedor */
-.r-index-form {
-    max-width: 800px;
-    margin: 2rem auto;
-    padding: 2rem;
-    background-color: #fff;
-    border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-}
 
-.container {
-    display: flex;
-    overflow-x: hidden;
-    width: 100%;
-    transition: transform 0.5s ease-in-out;
-}
-.form-page {
-    min-width: 100%;
-    box-sizing: border-box;
-}
+/* Estilos para el flujograma con desplazamiento horizontal en móvil */
 .steps {
     text-align: center;
     margin: 0 auto 2rem;
+    display: flex;
+    justify-content: center;
+    gap: 30px; /* Espacio entre los pasos */
+    align-items: center;
 }
+
 .steps ul {
     list-style-type: none;
     padding: 0;
     display: flex;
     justify-content: center;
-    gap: 8px;
     align-items: center;
-    margin: 0;
+    gap: 30px; /* Espaciado uniforme */
+    position: relative;
 }
+
 .steps li {
-    width: 30px;
-    height: 30px;
+    position: relative;
+    display: flex;
+    flex-direction: column; /* Apila número y texto verticalmente */
+    align-items: center;
+}
+
+.step-number {
+    width: 40px;
+    height: 40px;
     display: flex;
     align-items: center;
     justify-content: center;
     background-color: #e0e0e0;
-    border-radius: 6px;
-    font-size: 14px;
+    border-radius: 50%;
+    font-size: 16px;
     color: #666;
+    font-weight: bold;
     position: relative;
+    z-index: 2; /* Evita que la línea lo cubra */
+    cursor: pointer; /*Hace que los números sean clickeables */
 }
+
 .steps li::after {
     content: '';
     position: absolute;
-    right: -8px;
-    width: 8px;
-    height: 2px;
+    top: 50%;
+    left: 100%;
+    width: 30px;
+    height: 3px;
     background-color: #e0e0e0;
+    z-index: 1;
 }
+
 .steps li:last-child::after {
     display: none;
 }
-.steps .active {
+
+.steps .active .step-number {
     background-color: #4CAF50;
     color: white;
-    font-weight: bold;
-    border: none;
 }
+
 .steps .active::after {
     background-color: #4CAF50;
 }
-@media (max-width: 768px) {
-    .container {
-        flex-direction: row;
-    }
+
+/* Asegura que el texto esté debajo del número y centrado */
+.step-label {
+    margin-top: 6px;
+    font-size: 14px;
+    color: #333;
+    text-align: center;
 }
 
-/* Estilos para los títulos */
+/* Contenedor del formulario con desplazamiento horizontal */
+.form-container {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    width: 100%;
+}
+
+.form-page {
+    flex: 0 0 100%;
+    scroll-snap-align: start;
+    padding: 20px;
+}
+
+/* Resto de los estilos */
 .title-box label {
     font-size: 24px;
     font-weight: bold;
@@ -111,16 +132,8 @@ header {
     margin-bottom: 2rem;
 }
 
-/* Mejoras para los campos del formulario */
 .form-input {
     margin-bottom: 1.5rem;
-}
-
-.form-input label {
-    font-size: 16px;
-    color: #444;
-    margin-bottom: 0.5rem;
-    display: block;
 }
 
 .form-control {
@@ -138,7 +151,6 @@ header {
     box-shadow: 0 0 0 2px rgba(76, 175, 80, 0.2);
 }
 
-/* Estilos para los botones */
 .buttons {
     display: flex;
     gap: 1rem;
@@ -175,7 +187,6 @@ header {
     background-color: #e9e9e9;
 }
 
-/* Estilos para el control de rango */
 .presupuesto-desc {
     display: flex;
     justify-content: space-between;
@@ -184,7 +195,6 @@ header {
     color: #666;
 }
 
-/* Estilos para mensajes */
 .error-message {
     color: #dc3545;
     font-size: 14px;
@@ -201,7 +211,6 @@ header {
     margin-top: 1rem;
 }
 
-/* Estilos para la sección de política de privacidad */
 .link-condiciones {
     margin-top: 2rem;
     text-align: center;
@@ -218,7 +227,6 @@ header {
     text-decoration: underline;
 }
 
-/* Estilos para layout flexible */
 .flex {
     display: flex;
     gap: 1rem;
@@ -228,13 +236,11 @@ header {
     justify-content: space-between;
 }
 
-/* Estilos para campos con error */
 .form-control.error {
     border-color: #dc3545;
     background-color: #fff8f8;
 }
 
-/* Estilos adicionales para mantener la estructura */
 .bg-grey {
     background-color: #f8f9fa;
     padding: 1.5rem;
@@ -267,4 +273,24 @@ header {
 .round-bottom {
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
+}
+
+/* Estilos adicionales para dispositivos móviles */
+@media (max-width: 768px) {
+    .steps {
+        overflow-x: scroll;
+    }
+
+    .steps ul {
+        display: flex;
+        gap: 10px;
+    }
+
+    .steps li {
+        flex: 0 0 40px;
+    }
+
+    .form-page {
+        padding: 10px;
+    }
 }
